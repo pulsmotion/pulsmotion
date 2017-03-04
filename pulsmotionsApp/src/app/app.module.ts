@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ConnectPage } from '../pages/connect/connect';
-import { TutorialPage } from '../pages/tutorial/tutorial';
+import { MomentsPage } from '../pages/moments/moments';
 import { EmotionsPage } from '../pages/emotions/emotions';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -10,7 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   declarations: [
     MyApp,
     ConnectPage,
-    TutorialPage,
+    MomentsPage,
     EmotionsPage,
     TabsPage
   ],
@@ -21,7 +21,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   entryComponents: [
     MyApp,
     ConnectPage,
-    TutorialPage,
+    MomentsPage,
     EmotionsPage,
     TabsPage
   ],

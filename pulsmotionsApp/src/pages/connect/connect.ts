@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { Shake } from 'ionic-native';
+//import { Shake } from 'ionic-native';
 import { HTTP } from 'ionic-native';
 
 
@@ -13,10 +13,10 @@ import { HTTP } from 'ionic-native';
 export class ConnectPage {
 
   constructor(public navCtrl: NavController) {
-    let watch = Shake.startWatch(60).subscribe(() => {
-      this.postVoid()
+   // let watch = Shake.startWatch(60).subscribe(() => {
+  //    this.postVoid()
 
-    });
+   // });
     //
     // watch.unsubscribe();
 

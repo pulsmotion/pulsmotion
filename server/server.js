@@ -43,7 +43,7 @@ io.on('connection', function (socket) {
     ]
 
     // Send news on the socket
-    socket.emit('connect', 'messages');
+    socket.emit('connect', {'message': 'hello world'});
 
     socket.on('my other event', function (data) {
         console.log(data);
