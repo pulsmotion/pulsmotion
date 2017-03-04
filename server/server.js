@@ -1,27 +1,38 @@
-var express = require('express'),
-    bodyParser      = require('body-parser'),
-    methodOverride  = require('method-override'),
-    sessions        = require('./routes/sessions'),
-    app = express();
+var http    = require('http'),
+    express = require('express'),
+    app     = express(),
+    server  = http.createServer(app),
+    // Pass a http.Server instance to the listen method
+    io      = require('socket.io').listen(server);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(methodOverride());      // simulate DELETE and PUT
+// Listen on port
+server.listen(5000);
 
-// CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
+// GET: / 
+// Register the index route of your app that returns the HTML file
+app.get('/', function (req, res) {
+    console.log("Homepage");
+    res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/sessions', sessions.findAll);
-app.get('/sessions/:id', sessions.findById);
+// POST: moments
+// Process incoming data and emit to webapp 
+app.post('/moments', function (req, res) {
+    io.sockets.emit('news', req.body);
+    res.send({});
+});
 
-app.set('port', process.env.PORT || 5000);
+// Expose the node_modules folder as static resources (to access socket.io.js in the browser)
+app.use('/static', express.static('node_modules'));
 
-app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
+// Handle socket connection
+io.on('connection', function (socket) {
+    console.log("Connected succesfully to the socket ...");
+
+    // Send news on the socket
+    socket.emit('news', 'startup');
+
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
 });
