@@ -3,10 +3,18 @@ var http    = require('http'),
     app     = express(),
     server  = http.createServer(app),
     // Pass a http.Server instance to the listen method
-    io      = require('socket.io').listen(server);
+    io      = require('socket.io').listen(server),
+    bodyParser      = require('body-parser'),
+    methodOverride  = require('method-override');
 
 // Listen on port
 server.listen(5000);
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(methodOverride());
 
 // GET: / 
 // Register the index route of your app that returns the HTML file
@@ -27,10 +35,15 @@ app.use('/static', express.static('node_modules'));
 
 // Handle socket connection
 io.on('connection', function (socket) {
-    console.log("Connected succesfully to the socket ...");
+    console.log("Connected succesfully to the socket " + new Date());
+    
+    var messages = [
+      { text: 'Connected to socket on port 5000', createdAt: new Date() },
+      { text: 'Welcome!', createdAt: new Date() }
+    ]
 
     // Send news on the socket
-    socket.emit('news', 'startup');
+    socket.emit('connect', 'messages');
 
     socket.on('my other event', function (data) {
         console.log(data);
