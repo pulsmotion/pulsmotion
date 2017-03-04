@@ -2,34 +2,34 @@ page-moments {
 
 }
 
-.item-md {
-  background-color: #007aff;
+  .item-ios {
+    background-color: #007aff;
 
+    background: #c72222;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 
-  background: #c72222;
-  padding-left: 30px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  }
 
-}
+  .card-ios {
+    background-color: #e93a3a;
 
-.card-md {
-  background-color: #e93a3a;
+    background: #e93a3a;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 
-  background: #e93a3a;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  }
 
-}
+  .item-ios h2 {
+    margin: 2px 0;
+    font-size: 2.6rem;
+    font-weight: normal;
+    color: white;
+  }
 
-.item-md h2 {
-  margin: 2px 0;
-  font-size: 2.6rem;
-  font-weight: normal;
-  color: white;
-}
 
 
