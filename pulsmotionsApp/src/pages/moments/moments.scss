@@ -1,35 +1,99 @@
-page-moments {
+page-moments .content-md {
+  background-color: #C8421B;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icn {
+    display: inline-block;
+    background-repeat: no-repeat;
+    vertical-align: baseline;
+    background-size: 100% 100%;
+    &.icn-mic {
+      background-image: url('../../assets/img/moments/icns/icn-mic.svg');
+      width: 10px;
+      height: 14px;
+    }
+    &.icn-user {
+      background-image: url('../../assets/img/moments/icns/icn-user.svg');
+      width: 14px;
+      height: 12px;
+    }
+    &.icn-stage {
+      background-image: url('../../assets/img/moments/icns/icn-stage.svg');
+      width: 16px;
+      height: 13px;
+    }
+    &.icn-share {
+      background-image: url('../../assets/img/moments/icns/icn-share.svg');
+      width: 30px;
+      height: 30px;
+    }
+    &.icn-pulse {
+      background-image: url('../../assets/img/moments/icns/icn-pulse.svg');
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  a, a:hover, a:visited, a:active {
+    color: #C8421B;
+    text-decoration: none;
+  }
+
+  .moments-logo {
+    display: block;
+    background-repeat: no-repeat;
+    vertical-align: baseline;
+    background-size: 100% 100%;
+    background-image: url('../../assets/img/moments/icns/moments-logo.svg');
+    width: 330px;
+    height: 67px;
+    margin: 50px auto;
+  }
+  .moments {
+    padding: 0;
+    .moment {
+      list-style-type: none;
+      margin-bottom: 30px;
+      ion-card {
+        border-radius: 5px;
+        clear: both;
+        /* Rectangle 4: */
+        background: #FFFFFF;
+        box-shadow: 0 2px 7px 0 rgba(0,0,0,0.06);
+        .panel {
+          padding: 12px 16px;
+          border-top: 1px solid #979797;
+          .left {
+            float: left;
+            .top {
+              margin-bottom: 6px;
+            }
+            .bottom {
+              margin-bottom: 14px;
+            }
+          }
+          .right {
+            float: right;
+          }
+          .text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #979797;
+            letter-spacing: 0;
+            margin-right: 10px;
+          }
+          .icn {
+            margin-right: 4px;
+          }
+          .btn {
+            margin-top: 4px;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
 }
-
-  .item-ios {
-    background-color: #007aff;
-
-    background: #c72222;
-    padding-left: 30px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-
-  }
-
-  .card-ios {
-    background-color: #e93a3a;
-
-    background: #e93a3a;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-
-  }
-
-  .item-ios h2 {
-    margin: 2px 0;
-    font-size: 2.6rem;
-    font-weight: normal;
-    color: white;
-  }
-
-
-

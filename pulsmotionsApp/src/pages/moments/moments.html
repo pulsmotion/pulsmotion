@@ -1,41 +1,42 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>
       Moments
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="moments-logo"></div>
   <ion-list>
-    <ion-list-header>Your Puls Moments</ion-list-header>
-
-    <ion-card>
-
-      <img src="assets/img/1.jpeg">
-
-
-      <ion-item>
-        <ion-icon name="wine" item-left large ></ion-icon>
-        <h2>Your best Festival moment</h2>
-
-      </ion-item>
-
-      <ion-item>
-        <span item-left>18 min</span>
-        <span item-left>(2.6 mi)</span>
-        <button ion-button icon-left clear item-right>
-          <ion-icon name="navigate"></ion-icon>
-          Start
-        </button>
-      </ion-item>
-
-    </ion-card>
-
-    <ion-card>
-      <img src="assets/img/2.jpeg">
-
-    </ion-card>
-
+    <ul class='moments'>
+      <li *ngFor="let moment of moments" class='moment moment-{{moment.id}}'>
+        <ion-card>
+          <img src="assets/img/moments/{{moment.image}}">
+          <div class="panel">
+            <div class="left">
+              <div class="top">
+                <span class="text">{{moment.createdAt}}</span>
+                <span class="icn icn-stage"></span>
+                <span class="text">{{moment.stage}}</span>
+                <span class="icn icn-user"></span>
+                <span class="text">{{moment.people}}</span>
+                <span class="icn icn-pulse"></span>
+                <span class="text">{{moment.emotionScore}}</span>
+              </div>
+              <div class="bottom">
+                <span class="icn icn-mic"></span>
+                <span class="text"><a href="">{{moment.artist}}</a>—<a href="">{{moment.song}}</a></span>
+              </div>
+            </div>
+            <div class="right">
+              <button class="btn">
+                <span class="icn icn-share"></span>
+              </button>
+            </div>
+          </div>
+        </ion-card>
+      </li>
+    </ul>
   </ion-list>
 </ion-content>
