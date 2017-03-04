@@ -6,3 +6,95 @@ ion-header {
 
   color : #387ef5
 }
+
+@keyframes pulse {
+	0% {
+		transform: scale(.3);
+        background-color: rgba(72, 208, 251, 0.1);
+        border-color: rgba(72, 208, 251, 0);
+	}
+	50% {
+		transform: scale(.9);
+        background-color: rgba(72, 208, 251, .5);
+        border-color: rgba(72, 208, 251, .9);
+	}
+	100% {
+		transform: scale(1.5);
+        background-color: rgba(72, 208, 251, 0.1);
+        border-color: rgba(72, 208, 251, 0);
+	}
+}
+
+ion-content {
+  background-image: url('../../assets/img/emotions-bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .emotions-park {
+    position: absolute;
+    margin: -197px 0 0 -350px;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 394px;
+    background-image: url('../../assets/img/emotions-park.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .stages {
+    .stage {
+      position: absolute;
+      margin: 0 auto;
+      list-style-type: none;
+      .circle-holder {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .circle {
+          position: absolute;
+          display: block;
+          background-color: rgba(72, 208, 251, 0.5);
+          border: 1px solid rgba(72, 208, 251, 0.8);
+          border-radius: 25px;
+          margin: 0;
+          padding: 0;
+          &.inner {
+  					display: block;
+  					width: 24px;
+  					height: 24px;
+  					border-radius: 50px;
+  				}
+  				&.outer {
+  					display: block;
+            width: 60px;
+            height: 60px;
+  					border: 1px solid white;
+  					border-radius: 80px;
+  					animation: pulse 2s linear;
+  					animation-iteration-count: infinite;
+  				}
+
+        }
+      }
+      &.stage-1 {
+        margin: 169px 0 0 370px;
+      }
+      &.stage-2 {
+        margin: 233px 0 0 224px;
+      }
+      &.stage-3 {
+        margin: 61px 0 0 42px;
+      }
+    }
+  }
+}

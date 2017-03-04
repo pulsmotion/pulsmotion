@@ -16,6 +16,20 @@ export class EmotionsPage implements OnInit, OnDestroy {
   connection;
   message;
   socket:any = null;
+  stages = [
+    {
+      id: 1,
+      strength: 0.3
+    },
+    {
+      id: 2,
+      strength: 0.4
+    },
+    {
+      id: 3,
+      strength: 0.3
+    }
+  ];
 
   constructor(public navCtrl: NavController, private socketService:SocketService) {
     this.socket = io('http://localhost:8080');
@@ -24,6 +38,11 @@ export class EmotionsPage implements OnInit, OnDestroy {
     });
     this.socket.on('new-moment', (data) => {
       console.log(data);
+      for (var i = 0; i < this.stages.length; i++) {
+        if (data.moment.stage === this.stages[i].id) {
+          this.stages[i].strength = data.moment.strength;
+        }
+      }
     });
   }
 
