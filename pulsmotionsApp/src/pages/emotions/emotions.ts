@@ -22,6 +22,9 @@ export class EmotionsPage implements OnInit, OnDestroy {
     this.socket.on('connected', (data) => {
       console.log(data);
     });
+    this.socket.on('new-moment', (data) => {
+      console.log(data);
+    });
   }
 
   sendMessage() {

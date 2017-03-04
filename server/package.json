@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/ccoenraets/ionic-tutorial",
   "dependencies": {
+    "body-parser": "^1.17.0",
     "cors": "^2.8.1",
     "express": "^4.4.5",
     "socket.io": "^1.7.3"
