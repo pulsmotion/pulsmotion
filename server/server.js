@@ -1,51 +1,29 @@
-var http    = require('http'),
-    express = require('express'),
-    app     = express(),
-    server  = http.createServer(app),
-    // Pass a http.Server instance to the listen method
-    io      = require('socket.io').listen(server),
-    bodyParser      = require('body-parser'),
-    methodOverride  = require('method-override');
+var express = require('express'),
+    app = express(),
+    server = require('http').createServer(app),
+    io = require('socket.io').listen(server, { log: false }),
+    cors = require('cors');
 
-// Listen on port
-server.listen(5000);
+// Port
+var runningPortNumber = process.env.PORT || 8080;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(methodOverride());
+// CORS
+var whitelist = ['http://127.0.0.1', 'http://localhost','http://127.0.0.1:8080', 'http://localhost:8080'];
+var corsOptions = {
+    origin: function(origin, callback){
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    }
+};
+app.use(cors(corsOptions));
 
-// GET: / 
-// Register the index route of your app that returns the HTML file
-app.get('/', function (req, res) {
-    console.log("Homepage");
-    res.sendFile(__dirname + '/index.html');
+// Socket IO
+io.sockets.on('connection', function (socket) {
+    console.log('Connected succesfully to the socket ' + new Date());
+	io.sockets.emit('connected', { msg: "someone connected" } );
 });
 
-// POST: moments
-// Process incoming data and emit to webapp 
-app.post('/moments', function (req, res) {
-    io.sockets.emit('news', req.body);
-    res.send({});
-});
-
-// Expose the node_modules folder as static resources (to access socket.io.js in the browser)
-app.use('/static', express.static('node_modules'));
-
-// Handle socket connection
-io.on('connection', function (socket) {
-    console.log("Connected succesfully to the socket " + new Date());
-    
-    var messages = [
-      { text: 'Connected to socket on port 5000', createdAt: new Date() },
-      { text: 'Welcome!', createdAt: new Date() }
-    ]
-
-    // Send news on the socket
-    socket.emit('connect', 'messages');
-
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
+// Server listens on port
+server.listen(runningPortNumber, function(){
+    console.log('Listening on port ' + this.address().port);
 });

@@ -18,13 +18,13 @@ export class EmotionsPage implements OnInit, OnDestroy {
   socket:any = null;
 
   constructor(public navCtrl: NavController, private socketService:SocketService) {
-    this.socket = io('http://localhost:5000');
-    this.socket.on("connect", (data) => {
+    this.socket = io('http://localhost:8080');
+    this.socket.on('connected', (data) => {
       console.log(data);
     });
   }
 
-  sendMessage(){
+  sendMessage() {
     this.socketService.sendMessage(this.message);
     this.message = '';
   }
