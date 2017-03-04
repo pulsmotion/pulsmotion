@@ -4,7 +4,8 @@ import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-tutorial',
-  templateUrl: 'tutorial.html'
+  templateUrl: 'tutorial.html',
+  
 })
 export class TutorialPage {
 
