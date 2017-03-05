@@ -10,7 +10,7 @@
   <div class="moments-logo"></div>
   <ion-list>
     <ul class='moments'>
-      <li *ngFor="let moment of moments" class='moment moment-{{moment.id}}'>
+      <li *ngFor="let moment of moments" class='moment moment-{{moment.id}}' [ngClass]="{'active': moment.active }">
         <ion-card>
           <img src="assets/img/moments/{{moment.image}}">
           <div class="panel">

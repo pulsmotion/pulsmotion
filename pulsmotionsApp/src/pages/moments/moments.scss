@@ -56,7 +56,24 @@ page-moments .content-md {
     padding: 0;
     .moment {
       list-style-type: none;
-      margin-bottom: 30px;
+      margin-bottom: 0;
+
+      overflow-y: hidden;
+    	max-height: 0;
+      height: 0;
+      opacity: 0;
+
+    	transition-property: all;
+    	transition-duration: 1s;
+    	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+      &.active {
+        max-height: 555px;
+        margin-bottom: 30px;
+        height: auto;
+        opacity: 1;
+      }
+
       ion-card {
         border-radius: 5px;
         clear: both;
