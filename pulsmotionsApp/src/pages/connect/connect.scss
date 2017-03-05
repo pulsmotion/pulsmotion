@@ -1,3 +1,19 @@
-page-connect {
+page-connect ion-content{
+  background-image: url('../../assets/img/tutorial.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .splash {
+    position: absolute;
+
+    background-image: url('../../assets/img/splash.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
