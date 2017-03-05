@@ -18,16 +18,16 @@ export class EmotionsPage implements OnInit, OnDestroy {
   socket:any = null;
   stages = [
     {
-      id: 1,
-      strength: 0.3
+      stages: 1,
+      strength: 0.0
     },
     {
-      id: 2,
-      strength: 0.4
+      stages: 2,
+      strength: 0.0
     },
     {
-      id: 3,
-      strength: 0.3
+      stages: 3,
+      strength: 0.0
     }
   ];
 
@@ -39,7 +39,7 @@ export class EmotionsPage implements OnInit, OnDestroy {
     this.socket.on('new-moment', (data) => {
       console.log(data);
       for (var i = 0; i < this.stages.length; i++) {
-        if (data.moment.stage === this.stages[i].id) {
+        if (data.moment.stages == this.stages[i].stages) {
           this.stages[i].strength = data.moment.strength;
         }
       }

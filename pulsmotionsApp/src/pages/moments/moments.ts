@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {Shake, HTTP} from "ionic-native";
+import { HTTP} from 'ionic-native';
+//import {Shake} from 'ionic-native'
 import {Observable} from "rxjs";
-import { ScreenOrientation } from 'ionic-native';
+//import { ScreenOrientation } from 'ionic-native';
 
 
 
@@ -29,11 +30,11 @@ export class MomentsPage {
     console.log('Try construct shake service');
     var intensity: number = 0;
 
-    let watch = Shake.startWatch(1);
-    watch.subscribe(() => {
+   // let watch = Shake.startWatch(1);
+   // watch.subscribe(() => {
       console.log('Shake detected');
       intensity += 0.15;
-    } );
+   // } );
 
     let intervalScheduler = Observable.interval(5000);
 
@@ -44,8 +45,8 @@ export class MomentsPage {
   }
 
   postShake(strength: number) {
-    let orientation = ScreenOrientation.orientation
-    console.log(orientation)
+    //let orientation = ScreenOrientation.orientation
+    //console.log(orientation)
     console.log('Send shake');
     console.log(strength);
     HTTP.post('http://172.17.244.207:8080/moments', {
