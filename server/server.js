@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 // CORS
-var whitelist = ['http://127.0.0.1', 'http://localhost','http://127.0.0.1:8080', 'http://localhost:8080', 'http://172.17.101.242', 'http://172.17.101.242:8080'];
+var whitelist = ['http://127.0.0.1', 'http://localhost','http://127.0.0.1:8080', 'http://localhost:8080', 'http://172.17.101.242', 'http://172.17.101.242:8080', 'http://172.17.244.207:8080', 'http://172.17.244.207'];
 var corsOptions = {
   origin: function(origin, callback){
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
