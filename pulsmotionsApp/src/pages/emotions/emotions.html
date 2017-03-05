@@ -10,7 +10,7 @@
       <li *ngFor="let stage of stages" class='stage stage-{{stage.id}}'>
         <div class="circle-holder">
           <span class="circle inner" style="width: {{stage.strength}}px; height: {{stage.strength}}px;"></span>
-          <span class="circle outer" [ngStyle]="{'width.px': stage.strength * 100, 'height.px': stage.strength * 100 }">
+          <span class="circle outer strength-{{stage.strength}}" [ngStyle]="{'width.px': stage.strength * 100, 'height.px': stage.strength * 100 }">
             <span></span>
           </span>
         </div>

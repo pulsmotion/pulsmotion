@@ -10,18 +10,18 @@ ion-header {
 @keyframes pulse {
 	0% {
 		transform: scale(.3);
-        background-color: rgba(72, 208, 251, 0.1);
-        border-color: rgba(72, 208, 251, 0);
+        background-color: rgba(255, 214, 0, 0.3);
+        border-color: rgba(255, 214, 0, 0);
 	}
 	50% {
 		transform: scale(.9);
-        background-color: rgba(72, 208, 251, .5);
-        border-color: rgba(72, 208, 251, .9);
+        background-color: rgba(255, 214, 0, .6);
+        border-color: rgba(255, 214, 0, .9);
 	}
 	100% {
 		transform: scale(1.5);
-        background-color: rgba(72, 208, 251, 0.1);
-        border-color: rgba(72, 208, 251, 0);
+        background-color: rgba(255, 214, 0, 0.1);
+        border-color: rgba(255, 214, 0, 0);
 	}
 }
 
@@ -54,8 +54,8 @@ page-emotions ion-content {
       margin: 0 auto;
       list-style-type: none;
       .circle-holder {
-        width: 100px;
-        height: 100px;
+        width: 300px;
+        height: 300px;
         position: relative;
         display: flex;
         align-items: center;
@@ -63,37 +63,58 @@ page-emotions ion-content {
         .circle {
           position: absolute;
           display: block;
-          background-color: rgba(72, 208, 251, 0.5);
-          border: 1px solid rgba(72, 208, 251, 0.8);
+          background-color: rgba(255, 214, 0, 0.2);
+          border: 1px solid rgba(255, 214, 0, 0.3);
+        //   border: 1px solid rgba(255, 214, 0, 0.8);
           border-radius: 25px;
           margin: 0;
           padding: 0;
           &.inner {
+            display: none;
   					display: block;
-  					width: 24px;
-  					height: 24px;
+  					width: 50px;
+  					height: 50px;
   					border-radius: 50px;
   				}
   				&.outer {
   					display: block;
-            width: 60px;
-            height: 60px;
+            width: 150px;
+            height: 150px;
   					border: 1px solid white;
   					border-radius: 80px;
-  					animation: pulse 2s linear;
-  					animation-iteration-count: infinite;
+            // animation: pulse .9s linear infinite;
+            animation-duration: 1.1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: pulse;
+            &.strength-0.1,
+            &.strength-0.2,
+            &.strength-0.3,
+            &.strength-0.4 {
+              animation-duration: 1s !important;
+            }
+            &.strength-0.5,
+            &.strength-0.6,
+            &.strength-0.7,
+            &.strength-0.8 {
+              animation-duration: .8s !important;
+            }
+            &.strength-0.9,
+            &.strength-1 {
+              animation-duration: .7s !important;
+            }
   				}
 
         }
       }
       &.stage-1 {
-        margin: 169px 0 0 370px;
+        margin: 69px 0 0 270px;
       }
       &.stage-2 {
-        margin: 233px 0 0 224px;
+        margin: 131px 0 0 122px;
       }
       &.stage-3 {
-        margin: 61px 0 0 42px;
+        margin: -39px 0 0 -56px;
       }
     }
   }

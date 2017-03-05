@@ -50,3 +50,20 @@
     font-weight: 400;
     font-style: normal;
 }
+
+page-moments {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    left: 50%  !important;
+    transform: translateX(-50%) !important;
+}
+
+page-emotions {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    left: 50%  !important;
+    top: 50%  !important;
+    transform: translate3d(-50%, -50%, 0) !important;
+}
