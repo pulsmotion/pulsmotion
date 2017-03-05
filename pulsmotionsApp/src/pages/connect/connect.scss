@@ -1,5 +1,8 @@
 page-connect ion-content{
-  background-image: url('../../assets/img/tutorial.png');
+  //background-image: url('../../assets/img/tutorial.png');
+  top: 0;
+  left: 0;
+  position: absolute;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -8,12 +11,17 @@ page-connect ion-content{
   align-items: center;
   justify-content: center;
 
-  .splash {
+  .splash, .intro {
+    top: 0;
+    left: 0;
     position: absolute;
+    left: 50%  !important;
+    top: 50%  !important;
+    transform: translate3d(-50%, -50%, 0) !important;
 
-    background-image: url('../../assets/img/splash.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    //background-image: url('../../assets/img/splash.png');
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: contain;
   }
 }
