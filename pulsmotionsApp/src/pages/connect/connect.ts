@@ -8,11 +8,12 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'connect.html'
 })
 export class ConnectPage {
-
+  splashScreen = true;
   constructor(public navCtrl: NavController) {
 
   }
 
-
-
+  hideSplashScreen() {
+    this.splashScreen = false;
+  }
 }
